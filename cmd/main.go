@@ -27,7 +27,8 @@ func main() {
 	mux := http.NewServeMux()
 	mux.HandleFunc("POST /tasks", taskHandler.PostTask)
 	mux.HandleFunc("GET /tasks", taskHandler.GetTasks)
-
+	mux.HandleFunc("GET /task/{id}", taskHandler.GetTaskByID)
+	mux.HandleFunc("PUT /task/{id}", taskHandler.UpdateTaskByID)
 	// 5. Inicia o servidor HTTP na porta 9000
 	fmt.Println("Upando servidor Go!")
 	fmt.Println("Servidor rodando na porta: 9000")

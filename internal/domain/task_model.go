@@ -33,4 +33,6 @@ func NewTask(title, status string) (Task, error) {
 type Repository interface {
 	SaveTask(ctx context.Context, t *Task) error
 	ReadALL(ctx context.Context) ([]Task, error)
+	ReadByID(ctx context.Context, id string) (Task, error)
+	UpdateTaskByID(ctx context.Context, id string, t Task) (Task, error)
 }

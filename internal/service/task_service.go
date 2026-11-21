@@ -28,3 +28,9 @@ func (s *TaskService) CreateTask(ctx context.Context, task domain.Task) (domain.
 func (s *TaskService) GetAllTasks(ctx context.Context) ([]domain.Task, error) {
 	return s.repo.ReadALL(ctx)
 }
+func (s *TaskService) GetOneTaskByID(ctx context.Context, id string) (domain.Task, error) {
+	return s.repo.ReadByID(ctx, id)
+}
+func (s *TaskService) UpdateTask(ctx context.Context, id string, t domain.Task) (domain.Task, error) {
+	return s.repo.UpdateTaskByID(ctx, id, t)
+}
